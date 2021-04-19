@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.graph.redis.lp.object.Node;
 import com.graph.redis.lp.object.LinkEdge;
+import com.graph.redis.lp.object.Node;
 import com.graph.redis.lp.service.LegService;
 import com.graph.redis.lp.service.NodeService;
 
@@ -24,6 +24,9 @@ import com.graph.redis.lp.service.NodeService;
 @RestController
 @RequestMapping("/api/graph")
 public class NetworkGraphController {
+	
+
+
 	@Autowired
 	NodeService nodeService;
 

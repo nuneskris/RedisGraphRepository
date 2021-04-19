@@ -1,11 +1,16 @@
 package com.graph.redis.lp.repository;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -25,16 +30,23 @@ import redis.clients.jedis.JedisPoolConfig;
 import redis.clients.jedis.Protocol;
 
 @Component
-public class RedisGraphRepository implements ObjectRepository{
+public class  RedisGraphRepository implements ObjectRepository{
 	
-	 private static final Logger LOGGER=LoggerFactory.getLogger(RedisGraphRepository.class);
+	private static final Logger LOGGER=LoggerFactory.getLogger( RedisGraphRepository.class);
+	
 
 	private RedisGraph graph;
+	
+	private String graphName;
+	
 
-	private static final String graphName = "NetworkGraph";
-
-	public RedisGraphRepository() {
-		JedisPool pool = new JedisPool(new JedisPoolConfig(), "redis-13991.c60.us-west-1-2.ec2.cloud.redislabs.com", 13991, Protocol.DEFAULT_TIMEOUT, "g0ZKzWw07XIFccRjcRrEOmlW23ZeHuPu");
+	@Autowired
+	public RedisGraphRepository(@Value("${repo.redisgraph.host}") String redisHost,
+						@Value("${repo.redisgraph.graphName}") String graphName, 
+						@Value("${repo.redisgraph.port}")String port,
+						@Value("${repo.redisgraph.password}") String password) {
+		this.graphName = graphName;
+		JedisPool pool = new JedisPool(new JedisPoolConfig(), redisHost, Integer.valueOf(port.trim()).intValue() , Protocol.DEFAULT_TIMEOUT, password);
 		this.graph = new RedisGraph(pool);
 	}
 
