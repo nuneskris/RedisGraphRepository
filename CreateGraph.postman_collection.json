@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "9cd775c0-9595-47fc-8dd2-289fce40388c",
+		"name": "CreateGraph",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/api/graph/Legs?query=%7B%0A%20%20%20%20%22origin%22%3A%7B%0A%20%20%20%20%7D%2C%0A%20%20%20%20%20%22destination%22%3A%7B%0A%20%20%20%20%7D%2C%0A%20%20%20%20%22leg%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%22loadplan%22%3A%20%22my-first-l",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"origin\":{\n    },\n     \"destination\":{\n    },\n    \"leg\": {\n        \"loadplan\": \"my-first-lp2\"\n    } \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/graph/Legs?query=%7B%0A%20%20%20%20%22origin%22%3A%7B%0A%20%20%20%20%7D%2C%0A%20%20%20%20%20%22destination%22%3A%7B%0A%20%20%20%20%7D%2C%0A%20%20%20%20%22leg%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%22loadplan%22%3A%20%22my-first-lp%22%0A%20%20%20%20%7D%0A%7D",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"graph",
+						"Legs"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "%7B%0A%20%20%20%20%22origin%22%3A%7B%0A%20%20%20%20%7D%2C%0A%20%20%20%20%20%22destination%22%3A%7B%0A%20%20%20%20%7D%2C%0A%20%20%20%20%22leg%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%22loadplan%22%3A%20%22my-first-lp%22%0A%20%20%20%20%7D%0A%7D"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/graph/Nodes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n    \"number\": \"A\",\n    \"name\": \"11111\",\n    \"type\": \"AAA\",\n    \"regn\": \"EAST\"\n    },{\n    \"number\": \"B\",\n    \"name\": \"22222\",\n    \"type\": \"AAA\",\n    \"regn\": \"EAST\"\n    },{\n    \"number\": \"C\",\n    \"name\": \"33333\",\n    \"type\": \"BBBB\",\n    \"regn\": \"WEST\"\n    },{\n    \"number\": \"D\",\n    \"name\": \"44444\",\n    \"type\": \"BBB\",\n    \"regn\": \"WEST\"\n    },{\n    \"number\": \"E\",\n    \"name\": \"55555\",\n    \"type\": \"DDD\",\n    \"regn\": \"WEST\"\n    },{\n    \"number\": \"F\",\n    \"name\": \"66666\",\n    \"type\": \"CCC\",\n    \"regn\": \"WEST\"\n    },{\n    \"number\": \"G\",\n    \"name\": \"77777\",\n    \"type\": \"CCC\",\n    \"regn\": \"NORTH\"\n    },{\n    \"number\": \"H\",\n    \"name\": \"888888\",\n    \"type\": \"CCC\",\n    \"regn\": \"NORTH\"\n    },{\n    \"number\": \"M\",\n    \"name\": \"888888\",\n    \"type\": \"CCC\",\n    \"regn\": \"NORTH\"\n    },{\n    \"number\": \"N\",\n    \"name\": \"888888\",\n    \"type\": \"CCC\",\n    \"regn\": \"NORTH\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/graph/Nodes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"graph",
+						"Nodes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/graph/Node",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/graph/Node",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"graph",
+						"Node"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/graph/Links",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[   \n    {\n        \"origin\":{\"number\":\"B\"},\"destination\":{\"number\":\"A\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"A\",\"type\": \"SLOW\"}\n    },{\n        \"origin\":{\"number\":\"B\"},\"destination\":{\"number\":\"A\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"D\",\"type\": \"SLOW\"}\n    },{\n        \"origin\":{\"number\":\"B\"},\"destination\":{\"number\":\"A\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"G\",\"type\": \"SLOW\"}\n    },{\n        \"origin\":{\"number\":\"B\"},\"destination\":{\"number\":\"A\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"N\",\"type\": \"SLOW\"}\n    },{\n        \"origin\":{\"number\":\"B\"},\"destination\":{\"number\":\"A\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"M\",\"type\": \"SLOW\"}\n    },\n    \n    {\n        \"origin\":{\"number\":\"A\"},\"destination\":{\"number\":\"D\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"D\",\"type\": \"SLOW\"}\n    },{\n        \"origin\":{\"number\":\"A\"},\"destination\":{\"number\":\"D\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"G\",\"type\": \"SLOW\"}\n    },{\n        \"origin\":{\"number\":\"A\"},\"destination\":{\"number\":\"D\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"N\",\"type\": \"SLOW\"}\n    },\n\n    {\n        \"origin\":{\"number\":\"B\"},\"destination\":{\"number\":\"F\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"F\",\"type\": \"SLOW\"}\n    },{\n        \"origin\":{\"number\":\"B\"},\"destination\":{\"number\":\"E\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"E\",\"type\": \"SLOW\"}\n    },{\n        \"origin\":{\"number\":\"C\"},\"destination\":{\"number\":\"B\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"A\",\"type\": \"SLOW\"}\n    },{\n        \"origin\":{\"number\":\"C\"},\"destination\":{\"number\":\"B\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"B\",\"type\": \"SLOW\"}\n    },\n\n    {\n        \"origin\":{\"number\":\"A\"},\"destination\":{\"number\":\"C\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"C\",\"type\": \"SLOW\"}\n    },{\n        \"origin\":{\"number\":\"A\"},\"destination\":{\"number\":\"C\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"B\",\"type\": \"SLOW\"}\n    },\n    \n    {\n        \"origin\":{\"number\":\"C\"},\"destination\":{\"number\":\"M\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"M\",\"type\": \"SLOW\"}\n    },{\n        \"origin\":{\"number\":\"C\"},\"destination\":{\"number\":\"M\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"E\",\"type\": \"SLOW\"}\n    },{\n        \"origin\":{\"number\":\"C\"},\"destination\":{\"number\":\"M\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"G\",\"type\": \"SLOW\"}\n    },\n    \n    {\n        \"origin\":{\"number\":\"A\"},\"destination\":{\"number\":\"M\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"M\",\"type\": \"SLOW\"}\n    },{\n        \"origin\":{\"number\":\"A\"},\"destination\":{\"number\":\"M\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"E\",\"type\": \"SLOW\"}\n    },\n    \n    {\n        \"origin\":{\"number\":\"M\"},\"destination\":{\"number\":\"E\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"E\",\"type\": \"SLOW\"}\n    },{\n        \"origin\":{\"number\":\"M\"},\"destination\":{\"number\":\"G\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"G\",\"type\": \"SLOW\"}\n    }\n    ,{\n        \"origin\":{\"number\":\"D\"},\"destination\":{\"number\":\"N\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"N\",\"type\": \"SLOW\"}\n    },{\n        \"origin\":{\"number\":\"D\"},\"destination\":{\"number\":\"G\"},\n            \"link\": {\"day\": \"Monday\",\"finalDestination\": \"G\",\"type\": \"SLOW\"}\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/graph/Links",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"graph",
+						"Links"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
