@@ -2,7 +2,6 @@ package com.graph.redis.lp.repository;
 
 import java.util.List;
 
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.graph.redis.core.object.RepositoryEdge;
 import com.graph.redis.core.object.RepositoryNode;
 

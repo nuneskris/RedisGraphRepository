@@ -5,14 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.graph.redis.lp.object.Node;
 import com.graph.redis.lp.object.LinkEdge;
 import com.graph.redis.lp.repository.RedisGraphRepository;
 
 @Service
-public class LegService {
+public class EdgeService {
 	
 	@Autowired
 	RedisGraphRepository repository;
@@ -22,14 +19,8 @@ public class LegService {
 	}
 	
 	public List<LinkEdge> getLegEdge(LinkEdge linkEdge) {
+		@SuppressWarnings("unchecked")
 		ArrayList<LinkEdge> all = (ArrayList<LinkEdge>) repository.getEdgeByFilter(linkEdge);
-		ObjectMapper mapper = new ObjectMapper();
-		try {
-			System.out.println(mapper.writeValueAsString(all));
-		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		return (List<LinkEdge>) all;	
 	}
 	

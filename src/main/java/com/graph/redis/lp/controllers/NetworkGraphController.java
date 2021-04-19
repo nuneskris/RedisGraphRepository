@@ -16,7 +16,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.graph.redis.lp.object.LinkEdge;
 import com.graph.redis.lp.object.Node;
-import com.graph.redis.lp.service.LegService;
+import com.graph.redis.lp.service.EdgeService;
 import com.graph.redis.lp.service.NodeService;
 
 
@@ -31,17 +31,17 @@ public class NetworkGraphController {
 	NodeService nodeService;
 
 	@Autowired
-	LegService legService;
+	EdgeService edgeService;
 
 	@PostMapping(path = "/Link",consumes = "application/json", produces = "application/json")
 	public ResponseEntity<String> postLeg (@RequestBody LinkEdge linkEdge)  {
-		legService.create(linkEdge);
+		edgeService.create(linkEdge);
 		return ResponseEntity.ok("");
 	}
 	
 	@PostMapping(path = "/Links",consumes = "application/json", produces = "application/json")
 	public ResponseEntity<String> postLegs (@RequestBody List<LinkEdge> linkEdges)  {
-		legService.createAll(linkEdges);
+		edgeService.createAll(linkEdges);
 		return ResponseEntity.ok("");
 	}
 
@@ -50,7 +50,7 @@ public class NetworkGraphController {
 		ObjectMapper objectMapper = new ObjectMapper();
 		LinkEdge lpe = objectMapper.readValue(legEdgeString, LinkEdge.class);
 
-		List<LinkEdge> ja = legService.getLegEdge(lpe);
+		List<LinkEdge> ja = edgeService.getLegEdge(lpe);
 		return ResponseEntity.accepted().body(ja);
 	}
 	
